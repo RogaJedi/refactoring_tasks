@@ -3,34 +3,41 @@ using System.Collections.Generic;
 
 namespace RefactoringExample
 {
+    public enum AnimalType { Dog, Cat, Bird, Lion, Unknown }
+
     public class Animal
     {
-        public string Type { get; set; }
-        public string Name { get; set; }
+        public AnimalType Type { get; }
+        public string Name { get; }
 
-        public Animal(string type, string name)
+        public Animal(AnimalType type, string name)
         {
             Type = type;
             Name = name;
         }
+    }
 
-        public void MakeNoise()
+    public static class AnimalHelper
+    {
+        public static void Display(Animal animal)
         {
-            if (Type == "dog")
+            Console.WriteLine($"This is a {animal.Type} named {animal.Name}");
+        }
+
+        private static readonly Dictionary<AnimalType, string> Sounds = new()
+        {
+            { AnimalType.Dog, "Woof!" },
+            { AnimalType.Cat, "Meow!" },
+            { AnimalType.Bird, "Tweet!" },
+            { AnimalType.Lion, "Roar!" }
+        };
+
+        public static void MakeNoise(Animal animal)
+        {
+            if (Sounds.TryGetValue(animal.Type, out string sound))
             {
-                Console.WriteLine("Woof!");
-                // Воспроизведение звука собаки (имитация)
-                Console.WriteLine("Playing sound: ./sounds/dog.mp3");
-            }
-            else if (Type == "cat")
-            {
-                Console.WriteLine("Meow!");
-                Console.WriteLine("Playing sound: ./sounds/cat.mp3");
-            }
-            else if (Type == "bird")
-            {
-                Console.WriteLine("Tweet!");
-                Console.WriteLine("Playing sound: ./sounds/bird.mp3");
+                Console.WriteLine(sound);
+                Console.WriteLine($"Playing sound: ./sounds/{animal.Type.ToString().ToLower()}.mp3");
             }
             else
             {
@@ -38,82 +45,85 @@ namespace RefactoringExample
             }
         }
 
-        public void Display()
+        public static void Feed(Animal animal)
         {
-            Console.WriteLine($"This is a {Type} named {Name}");
+            string food = animal.Type switch
+            {
+                AnimalType.Dog => "dog food",
+                AnimalType.Cat => "cat food",
+                AnimalType.Bird => "bird food",
+                AnimalType.Lion => "meat",
+                _ => "generic food"
+            };
+
+            Console.WriteLine($"Feeding {food} to {animal.Name}");
+            Console.WriteLine($"{animal.Name} is eating {food}");
         }
 
-        public void Eat(string food)
+        public static void CleanEnclosure(Animal animal)
         {
-            Console.WriteLine($"{Name} is eating {food}");
+            Console.WriteLine($"Cleaning {animal.Type} enclosure for {animal.Name}");
         }
     }
 
     public class Zoo
     {
-        public void RunZoo()
+        private readonly List<Animal> animals = new()
         {
-            var animals = new List<Animal>
-            {
-                new Animal("dog", "Rex"),
-                new Animal("cat", "Whiskers"),
-                new Animal("bird", "Tweety")
-            };
+            new Animal(AnimalType.Dog, "Rex"),
+            new Animal(AnimalType.Cat, "Whiskers"),
+            new Animal(AnimalType.Bird, "Tweety")
+        };
 
+        public void SimulateZooTour()
+        {
             Console.WriteLine("=== Welcome to the Zoo! ===");
-
-            // показ животных
-            Console.WriteLine("\n--- Showing Animals ---");
-            foreach (var animal in animals)
-            {
-                animal.Display();
-            }
-
-            // издание звуков
-            Console.WriteLine("\n--- Animal Sounds ---");
-            foreach (var animal in animals)
-            {
-                animal.MakeNoise();
-            }
-
-            // кормление животных
-            Console.WriteLine("\n--- Feeding Animals ---");
-            foreach (var animal in animals)
-            {
-                if (animal.Type == "dog")
-                {
-                    Console.WriteLine($"Feeding dog food to {animal.Name}");
-                    animal.Eat("dog food");
-                }
-                else if (animal.Type == "cat")
-                {
-                    Console.WriteLine($"Feeding cat food to {animal.Name}");
-                    animal.Eat("cat food");
-                }
-                else if (animal.Type == "bird")
-                {
-                    Console.WriteLine($"Feeding bird food to {animal.Name}");
-                    animal.Eat("bird food");
-                }
-            }
-
-            Console.WriteLine("\n--- Cleaning Enclosures ---");
-            foreach (var animal in animals)
-            {
-                Console.WriteLine($"Cleaning {animal.Type} enclosure for {animal.Name}");
-            }
-
+            ShowAnimals();
+            MakeAllAnimalsNoise();
+            FeedAnimals();
+            CleanEnclosures();
             Console.WriteLine("\n=== Zoo Tour Completed ===");
         }
 
-        public void DoSomethingWithAnimals(string thing)
+        private void ShowAnimals()
         {
-            Console.WriteLine($"Doing {thing} with animals");
+            Console.WriteLine("\n--- Showing Animals ---");
+            animals.ForEach(AnimalHelper.Display);
         }
 
-        public void ProcessAnimalData(int x)
+        private void MakeAllAnimalsNoise()
         {
-            Console.WriteLine($"Processing animal data with value: {x}");
+            Console.WriteLine("\n--- Animal Sounds ---");
+            animals.ForEach(AnimalHelper.MakeNoise);
+        }
+
+        private void FeedAnimals()
+        {
+            Console.WriteLine("\n--- Feeding Animals ---");
+            animals.ForEach(AnimalHelper.Feed);
+        }
+
+        private void CleanEnclosures()
+        {
+            Console.WriteLine("\n--- Cleaning Enclosures ---");
+            animals.ForEach(AnimalHelper.CleanEnclosure);
+        }
+
+
+        public void PerformZooOperation(string operation)
+        {
+            Console.WriteLine($"Performing operation: {operation} with animals");
+        }
+
+        public void ProcessAnimalData(int value)
+        {
+            Console.WriteLine($"Processing animal data with value: {value}");
+        }
+
+        public void AddAnimal(Animal animal)
+        {
+            animals.Add(animal);
+            Console.WriteLine($"Added new animal: {animal.Type} named {animal.Name}");
         }
     }
 
@@ -124,50 +134,20 @@ namespace RefactoringExample
             Console.WriteLine("Starting Zoo Application...\n");
 
             var zoo = new Zoo();
-            
-            // демонстрация работы зоопарка
-            zoo.RunZoo();
+
+            zoo.SimulateZooTour();
 
             Console.WriteLine("\n--- Testing Other Methods ---");
-            zoo.DoSomethingWithAnimals("feeding");
+            zoo.PerformZooOperation("feeding");
             zoo.ProcessAnimalData(42);
 
-            Console.WriteLine("\n--- Adding New Animal (Problematic) ---");
-            var newAnimal = new Animal("lion", "Simba");
-            newAnimal.Display();
-            newAnimal.MakeNoise();
+            Console.WriteLine("\n--- Adding New Animal ---");
+            var newAnimal = new Animal(AnimalType.Lion, "Simba");
+            zoo.AddAnimal(newAnimal);
+            AnimalHelper.Display(newAnimal);
+            AnimalHelper.MakeNoise(newAnimal);
 
             Console.WriteLine("\nZoo Application Completed.");
-        }
-    }
-
-    public static class AnimalHelper
-    {
-        public static void PerformOperation(Animal animal, string operation)
-        {
-            switch (operation)
-            {
-                case "feed":
-                    if (animal.Type == "dog")
-                    {
-                        Console.WriteLine($"Feeding dog food to {animal.Name}");
-                    }
-                    else if (animal.Type == "cat")
-                    {
-                        Console.WriteLine($"Feeding cat food to {animal.Name}");
-                    }
-                    else if (animal.Type == "bird")
-                    {
-                        Console.WriteLine($"Feeding bird food to {animal.Name}");
-                    }
-                    break;
-                case "clean":
-                    Console.WriteLine($"Cleaning {animal.Type} enclosure for {animal.Name}");
-                    break;
-                default:
-                    Console.WriteLine($"Unknown operation for {animal.Name}");
-                    break;
-            }
         }
     }
 }
