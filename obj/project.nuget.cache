@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "N97yNoN5ioo=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\HYPERPC\\Desktop\\studies\\refac\\2\\RPCApp5\\RPCApp5.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\HYPERPC\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.20\\microsoft.netcore.app.ref.8.0.20.nupkg.sha512",
+    "C:\\Users\\HYPERPC\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.20\\microsoft.windowsdesktop.app.ref.8.0.20.nupkg.sha512",
+    "C:\\Users\\HYPERPC\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.20\\microsoft.aspnetcore.app.ref.8.0.20.nupkg.sha512",
+    "C:\\Users\\HYPERPC\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\8.0.20\\microsoft.netcore.app.host.win-x64.8.0.20.nupkg.sha512"
+  ],
+  "logs": []
+}

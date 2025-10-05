@@ -1,0 +1,14 @@
+C:\Users\ASUS\RiderProjects\RPCApp2\RPCApp5\bin\Debug\net8.0\RPCApp5.exe
+C:\Users\ASUS\RiderProjects\RPCApp2\RPCApp5\bin\Debug\net8.0\RPCApp5.deps.json
+C:\Users\ASUS\RiderProjects\RPCApp2\RPCApp5\bin\Debug\net8.0\RPCApp5.runtimeconfig.json
+C:\Users\ASUS\RiderProjects\RPCApp2\RPCApp5\bin\Debug\net8.0\RPCApp5.dll
+C:\Users\ASUS\RiderProjects\RPCApp2\RPCApp5\bin\Debug\net8.0\RPCApp5.pdb
+C:\Users\ASUS\RiderProjects\RPCApp2\RPCApp5\obj\Debug\net8.0\RPCApp5.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ASUS\RiderProjects\RPCApp2\RPCApp5\obj\Debug\net8.0\RPCApp5.AssemblyInfoInputs.cache
+C:\Users\ASUS\RiderProjects\RPCApp2\RPCApp5\obj\Debug\net8.0\RPCApp5.AssemblyInfo.cs
+C:\Users\ASUS\RiderProjects\RPCApp2\RPCApp5\obj\Debug\net8.0\RPCApp5.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\RiderProjects\RPCApp2\RPCApp5\obj\Debug\net8.0\RPCApp5.dll
+C:\Users\ASUS\RiderProjects\RPCApp2\RPCApp5\obj\Debug\net8.0\refint\RPCApp5.dll
+C:\Users\ASUS\RiderProjects\RPCApp2\RPCApp5\obj\Debug\net8.0\RPCApp5.pdb
+C:\Users\ASUS\RiderProjects\RPCApp2\RPCApp5\obj\Debug\net8.0\RPCApp5.genruntimeconfig.cache
+C:\Users\ASUS\RiderProjects\RPCApp2\RPCApp5\obj\Debug\net8.0\ref\RPCApp5.dll
