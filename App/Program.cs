@@ -1,31 +1,11 @@
 ﻿
 using System;
 using System.Diagnostics;
+using App.Utils;
 
-public class SubstringFinder
+namespace App
 {
-    public int FindIndexOfSubstring(string text, string pattern)
-    {
-        for (int i = 0; i <= text.Length - pattern.Length; i++)
-        {
-            if (IsMatch(text, pattern, i))
-                return i;
-        }
-        return -1;
-    }
-
-    private bool IsMatch(string text, string pattern, int startIndex)
-    {
-        for (int j = 0; j < pattern.Length; j++)
-        {
-            if (text[startIndex + j] != pattern[j])
-                return false;
-        }
-        return true;
-    }
-}
-
-class Program
+    class Program
 {
     static void Main()
     {
@@ -40,4 +20,5 @@ class Program
         Console.WriteLine($"Индекс подстроки: {index}");
         Console.WriteLine($"Время: {sw.ElapsedTicks} тиков");
     }
+}
 }

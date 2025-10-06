@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using App.Utils;
 
 [TestFixture]
 public class SubstringFinderTests

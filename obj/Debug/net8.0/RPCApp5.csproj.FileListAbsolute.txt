@@ -12,3 +12,8 @@ C:\Users\ASUS\RiderProjects\RPCApp2\RPCApp5\obj\Debug\net8.0\refint\RPCApp5.dll
 C:\Users\ASUS\RiderProjects\RPCApp2\RPCApp5\obj\Debug\net8.0\RPCApp5.pdb
 C:\Users\ASUS\RiderProjects\RPCApp2\RPCApp5\obj\Debug\net8.0\RPCApp5.genruntimeconfig.cache
 C:\Users\ASUS\RiderProjects\RPCApp2\RPCApp5\obj\Debug\net8.0\ref\RPCApp5.dll
+C:\Users\PC\Desktop\РЕФАК\2\refactoring_tasks\obj\Debug\net8.0\RPCApp5.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PC\Desktop\РЕФАК\2\refactoring_tasks\obj\Debug\net8.0\RPCApp5.AssemblyInfoInputs.cache
+C:\Users\PC\Desktop\РЕФАК\2\refactoring_tasks\obj\Debug\net8.0\RPCApp5.AssemblyInfo.cs
+C:\Users\PC\Desktop\РЕФАК\2\refactoring_tasks\obj\Debug\net8.0\RPCApp5.csproj.CoreCompileInputs.cache
+C:\Users\PC\Desktop\РЕФАК\2\refactoring_tasks\obj\Debug\net8.0\RPCApp5.sourcelink.json
